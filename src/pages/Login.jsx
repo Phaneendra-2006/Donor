@@ -67,14 +67,39 @@ const Login = ({ onLogin, user }) => {
 
     return (
         <div className="login-page-wrapper">
-            <div className="login-form-container">
-                <div className="login-form-card">
+            <div className="login-main-content">
+                <div className="login-image-section">
+                    <div className="image-overlay">
+                        <div className="image-content">
+                            <h1>🍽️ Feed Hope</h1>
+                            <h2>Together Against Hunger</h2>
+                            <p>Join thousands of donors and NGOs making a real difference in the fight against food waste and hunger.</p>
+                            <div className="image-features">
+                                <div className="feature-item">
+                                    <span className="feature-icon">✓</span>
+                                    <span>Connect donors with those in need</span>
+                                </div>
+                                <div className="feature-item">
+                                    <span className="feature-icon">✓</span>
+                                    <span>Reduce food waste sustainably</span>
+                                </div>
+                                <div className="feature-item">
+                                    <span className="feature-icon">✓</span>
+                                    <span>Track your impact in real-time</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="login-form-container">
+                    <div className="login-form-card">
                     <div className="login-header">
+                        <h2>{isLogin ? 'Welcome Back' : 'Create Account'}</h2>
+                        <p>{isLogin ? 'Log in to continue your impact' : 'Start your journey to zero waste'}</p>
                         <div className="login-icon-wrapper">
                             <HeartHandshake size={36} />
                         </div>
-                        <h2>{isLogin ? 'Welcome Back' : 'Create Account'}</h2>
-                        <p>{isLogin ? 'Log in to continue your impact' : 'Start your journey to zero waste'}</p>
                     </div>
 
                     {errorMsg && (
@@ -156,6 +181,111 @@ const Login = ({ onLogin, user }) => {
                         >
                             {isLogin ? 'Register here' : 'Log in instead'}
                         </span>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            {/* Food Donation Information Section */}
+            <div className="food-donation-info-section">
+                <div className="info-container">
+                    <div className="info-header">
+                        <h2>Why Food Donation Matters</h2>
+                        <p>Join us in the fight against hunger and food waste</p>
+                    </div>
+
+                    <div className="info-cards-grid">
+                        <div className="info-card">
+                            <div className="info-card-icon">🌍</div>
+                            <h3>Global Impact</h3>
+                            <p>
+                                Over 828 million people face hunger worldwide, while 1.3 billion tons of food 
+                                is wasted annually. Your donation can bridge this gap and save lives.
+                            </p>
+                        </div>
+
+                        <div className="info-card">
+                            <div className="info-card-icon">🍽️</div>
+                            <h3>Reduce Food Waste</h3>
+                            <p>
+                                Every year, approximately 30-40% of food supply goes to waste. By donating 
+                                surplus food, we can redirect it to those in need instead of landfills.
+                            </p>
+                        </div>
+
+                        <div className="info-card">
+                            <div className="info-card-icon">❤️</div>
+                            <h3>Community Support</h3>
+                            <p>
+                                Food donation strengthens communities by ensuring no one goes hungry. Your 
+                                contribution provides nutritious meals to children, elderly, and families in need.
+                            </p>
+                        </div>
+
+                        <div className="info-card">
+                            <div className="info-card-icon">♻️</div>
+                            <h3>Environmental Benefits</h3>
+                            <p>
+                                Donating food reduces greenhouse gas emissions from decomposing waste. It's 
+                                an eco-friendly way to make a difference and protect our planet.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="impact-stats">
+                        <div className="stat-item">
+                            <h3>10M+</h3>
+                            <p>Meals Donated</p>
+                        </div>
+                        <div className="stat-item">
+                            <h3>5,000+</h3>
+                            <p>Active Donors</p>
+                        </div>
+                        <div className="stat-item">
+                            <h3>500+</h3>
+                            <p>NGO Partners</p>
+                        </div>
+                        <div className="stat-item">
+                            <h3>100+</h3>
+                            <p>Cities Covered</p>
+                        </div>
+                    </div>
+
+                    <div className="how-it-works">
+                        <h2>How Food Donation Works</h2>
+                        <div className="steps-grid">
+                            <div className="step-card">
+                                <div className="step-number">1</div>
+                                <h4>Donors Register</h4>
+                                <p>Restaurants, hotels, and individuals sign up to donate surplus food</p>
+                            </div>
+                            <div className="step-card">
+                                <div className="step-number">2</div>
+                                <h4>NGOs Connect</h4>
+                                <p>Verified NGOs receive notifications about available donations</p>
+                            </div>
+                            <div className="step-card">
+                                <div className="step-number">3</div>
+                                <h4>Food Collection</h4>
+                                <p>NGOs coordinate pickup and ensure food safety standards</p>
+                            </div>
+                            <div className="step-card">
+                                <div className="step-number">4</div>
+                                <h4>Distribution</h4>
+                                <p>Meals reach hungry families and individuals in your community</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="cta-banner">
+                        <h2>Ready to Make a Difference?</h2>
+                        <p>Join thousands of donors and NGOs working together to end hunger and reduce waste</p>
+                        <button 
+                            className="btn btn-primary" 
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        >
+                            Get Started Now
+                        </button>
                     </div>
                 </div>
             </div>
