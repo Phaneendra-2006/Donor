@@ -55,27 +55,27 @@ export const VerifyEntries = () => (
             <h1 className="page-title">Verify Entries</h1>
         </div>
         <div className="content-card">
-            <h3 style={{ marginBottom: '20px' }}>Pending NGO/Donor Verifications</h3>
+            <h3 style={{ marginBottom: '20px', color: '#b370ff', fontWeight: '800', textShadow: '0 0 20px rgba(179, 112, 255, 0.4)' }}>Pending NGO/Donor Verifications</h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                <div style={{ padding: '20px', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)' }}>
+                <div style={{ padding: '20px', border: '2px solid rgba(0, 229, 255, 0.3)', borderRadius: 'var(--radius-sm)', transition: 'all 0.3s ease' }} className="verification-card">
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <h4 style={{ color: 'var(--primary-color)' }}>Shelter Home Foundation</h4>
+                        <h4 style={{ color: '#00e5ff', fontWeight: '800', textShadow: '0 0 15px rgba(0, 229, 255, 0.4)' }}>Shelter Home Foundation</h4>
                         <span className="status-badge status-pending">Pending</span>
                     </div>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: '10px 0' }}>Role: NGO</p>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '15px' }}>Submitted License: <FileText size={16} style={{ verticalAlign: 'middle', cursor: 'pointer', color: 'var(--secondary-color)' }} /> <strong>doc_license_v2.pdf</strong></p>
+                    <p style={{ color: '#b3b3b3', fontSize: '0.9rem', margin: '10px 0', fontWeight: '600' }}>Role: NGO</p>
+                    <p style={{ color: '#b3b3b3', fontSize: '0.9rem', marginBottom: '15px', fontWeight: '600' }}>Submitted License: <FileText size={16} style={{ verticalAlign: 'middle', cursor: 'pointer', color: '#b370ff' }} /> <strong>doc_license_v2.pdf</strong></p>
                     <div style={{ display: 'flex', gap: '10px' }}>
                         <button className="btn btn-primary" style={{ flex: 1, padding: '10px', display: 'flex', gap: '5px', justifyContent: 'center' }}><CheckCircle2 size={18} /> Approve</button>
                         <button className="btn btn-secondary" style={{ flex: 1, padding: '10px', background: 'var(--error)' }}>Reject</button>
                     </div>
                 </div>
-                <div style={{ padding: '20px', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)' }}>
+                <div style={{ padding: '20px', border: '2px solid rgba(0, 229, 255, 0.3)', borderRadius: 'var(--radius-sm)', transition: 'all 0.3s ease' }} className="verification-card">
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <h4 style={{ color: 'var(--primary-color)' }}>Happy Baker's Shop</h4>
+                        <h4 style={{ color: '#00e5ff', fontWeight: '800', textShadow: '0 0 15px rgba(0, 229, 255, 0.4)' }}>Happy Baker's Shop</h4>
                         <span className="status-badge status-pending">Pending</span>
                     </div>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: '10px 0' }}>Role: Donor</p>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '15px' }}>Submitted GST: <FileText size={16} style={{ verticalAlign: 'middle', cursor: 'pointer', color: 'var(--secondary-color)' }} /> <strong>gst_certificate.pdf</strong></p>
+                    <p style={{ color: '#b3b3b3', fontSize: '0.9rem', margin: '10px 0', fontWeight: '600' }}>Role: Donor</p>
+                    <p style={{ color: '#b3b3b3', fontSize: '0.9rem', marginBottom: '15px', fontWeight: '600' }}>Submitted GST: <FileText size={16} style={{ verticalAlign: 'middle', cursor: 'pointer', color: '#b370ff' }} /> <strong>gst_certificate.pdf</strong></p>
                     <div style={{ display: 'flex', gap: '10px' }}>
                         <button className="btn btn-primary" style={{ flex: 1, padding: '10px', display: 'flex', gap: '5px', justifyContent: 'center' }}><CheckCircle2 size={18} /> Approve</button>
                         <button className="btn btn-secondary" style={{ flex: 1, padding: '10px', background: 'var(--error)' }}>Reject</button>

@@ -49,7 +49,7 @@ const DonorDashboard = () => {
             </div>
 
             <div className="content-card">
-                <h2 style={{ marginBottom: '20px' }}>Recent Donations</h2>
+                <h2 style={{ marginBottom: '20px', color: '#00e5ff', fontWeight: '800', textShadow: '0 0 20px rgba(0, 229, 255, 0.5)' }}>Recent Donations</h2>
                 <div className="table-responsive">
                     <table>
                         <thead>

@@ -40,7 +40,7 @@ const NGODashboard = () => {
             </div>
 
             <div className="content-card">
-                <h2 style={{ marginBottom: '20px' }}>Available Donations Near You</h2>
+                <h2 style={{ marginBottom: '20px', color: '#00e5ff', fontWeight: '800', textShadow: '0 0 20px rgba(0, 229, 255, 0.5)' }}>Available Donations Near You</h2>
                 <div className="table-responsive">
                     <table>
                         <thead>

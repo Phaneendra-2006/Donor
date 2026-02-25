@@ -17,11 +17,11 @@ export const AvailableFood = () => (
 
         <div className="card-grid">
             {[1, 2, 3, 4].map(item => (
-                <div key={item} className="content-card" style={{ marginTop: 0 }}>
-                    <h3 style={{ marginBottom: '10px', color: 'var(--primary-color)' }}>Fresh Bakery Items</h3>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '5px' }}><strong>Donor:</strong> Sunshine Bakery</p>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '5px' }}><strong>Quantity:</strong> 50+ Servings</p>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '15px' }}><strong>Distance:</strong> 2.{item} km away</p>
+                <div key={item} className="content-card" style={{ marginTop: 0, transition: 'all 0.3s ease' }}>
+                    <h3 style={{ marginBottom: '10px', color: '#00e5ff', fontWeight: '800', textShadow: '0 0 15px rgba(0, 229, 255, 0.4)' }}>Fresh Bakery Items</h3>
+                    <p style={{ color: '#b3b3b3', marginBottom: '5px', fontWeight: '600' }}><strong>Donor:</strong> Sunshine Bakery</p>
+                    <p style={{ color: '#b3b3b3', marginBottom: '5px', fontWeight: '600' }}><strong>Quantity:</strong> 50+ Servings</p>
+                    <p style={{ color: '#b3b3b3', marginBottom: '15px', fontWeight: '600' }}><strong>Distance:</strong> 2.{item} km away</p>
                     <button className="btn btn-primary">Request Food</button>
                 </div>
             ))}
@@ -74,7 +74,7 @@ export const TrackDelivery = () => (
             <h1 className="page-title">Active Deliveries</h1>
         </div>
         <div className="content-card">
-            <h3 style={{ marginBottom: '20px' }}>Tracking: #REQ-8291 (Grand Palace Hotel)</h3>
+            <h3 style={{ marginBottom: '20px', color: '#b370ff', fontWeight: '800', textShadow: '0 0 20px rgba(179, 112, 255, 0.4)' }}>Tracking: #REQ-8291 (Grand Palace Hotel)</h3>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', position: 'relative', paddingLeft: '30px', borderLeft: '2px solid var(--primary-color)' }}>
                 <div style={{ position: 'relative' }}>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { HeartHandshake, ShieldCheck, UserCircle2, Building, LineChart, Sparkles, CheckCircle, Users, TrendingUp, Heart, Award, Globe } from 'lucide-react';
-import BrightAnimatedBackground from '../components/BrightAnimatedBackground';
+import { HeartHandshake, ShieldCheck, UserCircle2, Building, LineChart, Sparkles, CheckCircle, Users, TrendingUp, Heart, Award, Globe, Utensils, Users as UsersIcon, Apple, Coffee, Pizza } from 'lucide-react';
 import '../BrightTheme.css';
 import './LoginBright.css';
 
@@ -62,16 +61,14 @@ const Login = ({ onLogin, user }) => {
     };
 
     const roleCards = [
-        { id: 'donor', title: 'Donor', icon: <UserCircle2 size={24} />, color: '#3b82f6' },
-        { id: 'ngo', title: 'NGO', icon: <Building size={24} />, color: '#10b981' },
-        { id: 'admin', title: 'Admin', icon: <ShieldCheck size={24} />, color: '#8b5cf6' },
-        { id: 'analyst', title: 'Analyst', icon: <LineChart size={24} />, color: '#ec4899' }
+        { id: 'donor', title: 'Donor', icon: <UserCircle2 size={24} />, color: '#2563eb', hoverColor: '#1d4ed8' },
+        { id: 'ngo', title: 'NGO', icon: <Building size={24} />, color: '#059669', hoverColor: '#047857' },
+        { id: 'admin', title: 'Admin', icon: <ShieldCheck size={24} />, color: '#7c3aed', hoverColor: '#6d28d9' },
+        { id: 'analyst', title: 'Analyst', icon: <LineChart size={24} />, color: '#db2777', hoverColor: '#be185d' }
     ];
 
     return (
         <>
-            <BrightAnimatedBackground />
-            
             <div className="login-bright-container">
                 {/* Login Form Section */}
                 <div className="login-form-section">
@@ -147,7 +144,10 @@ const Login = ({ onLogin, user }) => {
                                             key={r.id}
                                             onClick={() => setRole(r.id)}
                                             className={`role-card-bright ${role === r.id ? 'active' : ''}`}
-                                            style={{ '--role-color': r.color }}
+                                            style={{ 
+                                                '--role-color': r.color,
+                                                '--role-hover-color': r.hoverColor
+                                            }}
                                         >
                                             <div className="role-icon-bright">
                                                 {r.icon}
@@ -168,13 +168,13 @@ const Login = ({ onLogin, user }) => {
                                 {isLogin ? "Don't have an account? " : "Already have an account? "}
                             </span>
                             <button
-                                className="toggle-link-bright"
+                                className="toggle-link-bright prominent-toggle"
                                 onClick={() => {
                                     setIsLogin(!isLogin);
                                     setErrorMsg('');
                                 }}
                             >
-                                {isLogin ? 'Sign Up' : 'Sign In'}
+                                {isLogin ? '✨ Sign Up Now' : '🔐 Sign In'}
                             </button>
                         </div>
                     </div>
@@ -182,6 +182,42 @@ const Login = ({ onLogin, user }) => {
 
                 {/* Scrollable Project Info Section */}
                 <div className="project-info-section">
+                    {/* Permanent Food Donation Visual */}
+                    <div className="project-visual-card">
+                        <div className="visual-header">
+                            <div className="visual-icon-group">
+                                <div className="visual-icon donor-icon">
+                                    <Utensils size={28} />
+                                </div>
+                                <div className="connection-line"></div>
+                                <div className="visual-icon heart-icon">
+                                    <HeartHandshake size={28} />
+                                </div>
+                                <div className="connection-line"></div>
+                                <div className="visual-icon receiver-icon">
+                                    <Users size={28} />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="visual-content">
+                            <h3 className="visual-title">How FeedHope Connects Communities</h3>
+                            <div className="visual-steps">
+                                <div className="visual-step">
+                                    <span className="step-emoji">🍽️</span>
+                                    <p>Donors share surplus food</p>
+                                </div>
+                                <div className="visual-step">
+                                    <span className="step-emoji">🤝</span>
+                                    <p>Platform matches needs</p>
+                                </div>
+                                <div className="visual-step">
+                                    <span className="step-emoji">❤️</span>
+                                    <p>Communities get fed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="info-hero">
                         <h2 className="info-hero-title">
                             <span className="gradient-text">Transform Lives</span> Through Food Donation
@@ -193,7 +229,7 @@ const Login = ({ onLogin, user }) => {
 
                     {/* Statistics Cards */}
                     <div className="stats-grid-bright">
-                        <div className="stat-card-bright slide-up" style={{ animationDelay: '0s' }}>
+                        <div className="stat-card-bright slide-up">
                             <div className="stat-icon-bright blue">
                                 <Users size={32} />
                             </div>
@@ -201,7 +237,7 @@ const Login = ({ onLogin, user }) => {
                             <p className="stat-label-bright">Active Members</p>
                         </div>
 
-                        <div className="stat-card-bright slide-up" style={{ animationDelay: '0.1s' }}>
+                        <div className="stat-card-bright slide-up">
                             <div className="stat-icon-bright green">
                                 <Heart size={32} />
                             </div>
@@ -209,7 +245,7 @@ const Login = ({ onLogin, user }) => {
                             <p className="stat-label-bright">Meals Donated</p>
                         </div>
 
-                        <div className="stat-card-bright slide-up" style={{ animationDelay: '0.2s' }}>
+                        <div className="stat-card-bright slide-up">
                             <div className="stat-icon-bright purple">
                                 <Globe size={32} />
                             </div>
@@ -217,7 +253,7 @@ const Login = ({ onLogin, user }) => {
                             <p className="stat-label-bright">Cities</p>
                         </div>
 
-                        <div className="stat-card-bright slide-up" style={{ animationDelay: '0.3s' }}>
+                        <div className="stat-card-bright slide-up">
                             <div className="stat-icon-bright pink">
                                 <Award size={32} />
                             </div>

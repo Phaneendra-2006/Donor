@@ -8,7 +8,7 @@ export const WasteReports = () => (
             <button className="btn btn-primary" style={{ width: 'auto' }}>Download PDF</button>
         </div>
         <div className="content-card">
-            <h3 style={{ marginBottom: '20px' }}>Monthly Waste vs Saved Food (Tons)</h3>
+            <h3 style={{ marginBottom: '20px', color: '#b370ff', fontWeight: '800', textShadow: '0 0 20px rgba(179, 112, 255, 0.4)' }}>Monthly Waste vs Saved Food (Tons)</h3>
             <div style={{ height: '300px', display: 'flex', alignItems: 'flex-end', gap: '30px', padding: '20px', borderBottom: '1px solid var(--border-color)', borderLeft: '1px solid var(--border-color)' }}>
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '5px' }}>
                     <div style={{ height: '200px', background: 'var(--error)', opacity: 0.8, borderRadius: '4px' }}></div>
@@ -71,7 +71,7 @@ export const ImpactAnalysis = () => (
         </div>
 
         <div className="content-card">
-            <h3 style={{ marginBottom: '20px' }}>Distribution by Food Categories</h3>
+            <h3 style={{ marginBottom: '20px', color: '#b370ff', fontWeight: '800', textShadow: '0 0 20px rgba(179, 112, 255, 0.4)' }}>Distribution by Food Categories</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', alignItems: 'center', justifyContent: 'center', padding: '40px' }}>
                 <div style={{ width: '200px', height: '200px', borderRadius: '50%', background: 'conic-gradient(var(--primary-color) 0% 45%, var(--secondary-color) 45% 75%, var(--warning) 75% 90%, var(--error) 90% 100%)', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}></div>
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '15px' }}>

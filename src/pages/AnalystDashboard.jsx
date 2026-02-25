@@ -42,7 +42,7 @@ const AnalystDashboard = () => {
             </div>
 
             <div className="content-card">
-                <h2 style={{ marginBottom: '20px' }}>Food Waste vs Savings Trends (Mock Data)</h2>
+                <h2 style={{ marginBottom: '20px', color: '#00e5ff', fontWeight: '800', textShadow: '0 0 20px rgba(0, 229, 255, 0.5)' }}>Food Waste vs Savings Trends (Mock Data)</h2>
                 <div style={{ height: '300px', display: 'flex', alignItems: 'flex-end', gap: '20px', padding: '20px', borderBottom: '1px solid var(--border-color)', borderLeft: '1px solid var(--border-color)' }}>
                     {[60, 80, 45, 90, 120, 150].map((height, i) => (
                         <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
@@ -59,7 +59,7 @@ const AnalystDashboard = () => {
             </div>
 
             <div className="content-card" style={{ marginTop: '30px' }}>
-                <h2 style={{ marginBottom: '20px' }}>Top Contributors</h2>
+                <h2 style={{ marginBottom: '20px', color: '#00e5ff', fontWeight: '800', textShadow: '0 0 20px rgba(0, 229, 255, 0.5)' }}>Top Contributors</h2>
                 <div className="table-responsive">
                     <table>
                         <thead>

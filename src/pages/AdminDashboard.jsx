@@ -42,7 +42,7 @@ const AdminDashboard = () => {
                         <h1 className="text-gradient" style={{ fontSize: '2.2rem', marginBottom: '8px' }}>
                             Admin Dashboard
                         </h1>
-                        <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>
+                        <p style={{ color: '#b3b3b3', fontSize: '1rem', fontWeight: '600' }}>
                             Monitor and manage your platform
                         </p>
                     </div>
