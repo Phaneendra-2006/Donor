@@ -1,12 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Package, CheckCircle, Clock, MapPin } from 'lucide-react';
 
 const DonorDashboard = () => {
+    const navigate = useNavigate();
+
     return (
         <div>
             <div className="page-header">
                 <h1 className="page-title">Donor Dashboard</h1>
-                <button className="btn btn-primary" style={{ width: 'auto' }}>+ Donate Food</button>
+                <button 
+                    className="btn btn-primary" 
+                    style={{ width: 'auto' }}
+                    onClick={() => navigate('/donor/donate')}
+                >
+                    + Donate Food
+                </button>
             </div>
 
             <div className="card-grid">

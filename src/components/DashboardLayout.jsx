@@ -17,8 +17,8 @@ import {
     TrendingUp,
     UserCircle
 } from 'lucide-react';
-import AnimatedBackground from './AnimatedBackground';
-import '../DarkTheme.css';
+import BrightAnimatedBackground from './BrightAnimatedBackground';
+import '../BrightTheme.css';
 import './DashboardLayout.css';
 
 const DashboardLayout = ({ user, onLogout, children }) => {
@@ -68,37 +68,37 @@ const DashboardLayout = ({ user, onLogout, children }) => {
 
     return (
         <>
-            <AnimatedBackground />
-            <div className="dashboard-container-dark">
-                <nav className="navbar-dark">
-                    <div className="navbar-brand-dark">
+            <BrightAnimatedBackground />
+            <div className="dashboard-container-bright">
+                <nav className="navbar-bright">
+                    <div className="navbar-brand-bright">
                         <HeartHandshake size={32} className="brand-icon-nav" />
                         <span className="brand-text">FeedHope</span>
                     </div>
-                    <div className="navbar-actions-dark">
-                        <div className="user-badge-dark">
+                    <div className="navbar-actions-bright">
+                        <div className="user-badge-bright">
                             <UserCircle size={22} />
                             <div className="user-details">
                                 <span className="user-name">{user.name}</span>
                                 <span className="user-role">{user.role.toUpperCase()}</span>
                             </div>
                         </div>
-                        <button className="logout-btn-dark" onClick={handleLogout}>
+                        <button className="logout-btn-bright" onClick={handleLogout}>
                             <LogOut size={18} />
                             <span>Logout</span>
                         </button>
                     </div>
                 </nav>
 
-                <div className="dashboard-layout-dark">
-                    <aside className="sidebar-dark">
+                <div className="dashboard-layout-bright">
+                    <aside className="sidebar-bright">
                         <div className="sidebar-menu">
                             {links.map((link) => (
                                 <NavLink
                                     key={link.path}
                                     to={link.path}
                                     end={link.path.split('/').length <= 2}
-                                    className={({ isActive }) => `nav-item-dark ${isActive ? 'active' : ''}`}
+                                    className={({ isActive }) => `nav-item-bright ${isActive ? 'active' : ''}`}
                                 >
                                     {link.icon}
                                     <span>{link.name}</span>
@@ -107,7 +107,7 @@ const DashboardLayout = ({ user, onLogout, children }) => {
                         </div>
                     </aside>
 
-                    <main className="main-content-dark">
+                    <main className="main-content-bright">
                         {children}
                     </main>
                 </div>
