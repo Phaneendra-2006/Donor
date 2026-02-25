@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { HeartHandshake, ShieldCheck, UserCircle2, Building, LineChart } from 'lucide-react';
+import { HeartHandshake, ShieldCheck, UserCircle2, Building, LineChart, TrendingUp, Users, Target } from 'lucide-react';
+import GradualBlur from '../components/GradualBlur';
 
 const Login = ({ onLogin, user }) => {
     const [isLogin, setIsLogin] = useState(true);
@@ -289,6 +290,38 @@ const Login = ({ onLogin, user }) => {
                     </div>
                 </div>
             </div>
+
+            {/* GradualBlur Component - Footer Blur Effect */}
+            <GradualBlur layers={12} maxBlur={25} height="300px">
+                <h3>Join the FeedHope Movement</h3>
+                <p>
+                    Together we can eliminate food waste and hunger in our communities.
+                    Every meal donated brings hope to someone in need.
+                </p>
+                <div className="blur-footer-info">
+                    <div className="blur-info-item">
+                        <div className="icon">
+                            <TrendingUp size={24} />
+                        </div>
+                        <strong>95%</strong>
+                        <span>Success Rate</span>
+                    </div>
+                    <div className="blur-info-item">
+                        <div className="icon">
+                            <Users size={24} />
+                        </div>
+                        <strong>5,500+</strong>
+                        <span>Active Members</span>
+                    </div>
+                    <div className="blur-info-item">
+                        <div className="icon">
+                            <Target size={24} />
+                        </div>
+                        <strong>10M+</strong>
+                        <span>Meals Served</span>
+                    </div>
+                </div>
+            </GradualBlur>
         </div>
     );
 };
