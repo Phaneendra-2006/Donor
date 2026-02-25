@@ -1,201 +1,293 @@
-import React, { useState } from 'react';
-import { Users, AlertTriangle, ShieldCheck, Activity, TrendingUp, Download, RefreshCw, CheckCircle2, XCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Users, AlertTriangle, ShieldCheck, Activity, TrendingUp, Download, RefreshCw, CheckCircle2, XCircle, Eye } from 'lucide-react';
+import '../DarkTheme.css';
 
 const AdminDashboard = () => {
     const [isRefreshing, setIsRefreshing] = useState(false);
+    const [stats, setStats] = useState({
+        users: 452,
+        pending: 12,
+        uptime: 99.9,
+        sessions: 1247
+    });
 
     const handleRefresh = () => {
         setIsRefreshing(true);
         setTimeout(() => setIsRefreshing(false), 1000);
     };
 
+    {/* Counter animation */}
+    useEffect(() => {
+        const duration = 2000;
+        const steps = 60;
+        const increment = duration / steps;
+        
+        let currentStep = 0;
+        const interval = setInterval(() => {
+            currentStep++;
+            if (currentStep >= steps) {
+                clearInterval(interval);
+            }
+        }, increment);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
-        <div className="dashboard-page">
-            <div className="page-header enhanced">
-                <div>
-                    <h1 className="page-title gradient-text">Admin Dashboard</h1>
-                    <p className="page-subtitle">Monitor and manage your platform</p>
-                </div>
-                <div style={{ display: 'flex', gap: '12px' }}>
-                    <button 
-                        className="btn btn-secondary-outline" 
-                        style={{ width: 'auto', padding: '10px 20px' }}
-                        onClick={handleRefresh}
-                    >
-                        <RefreshCw size={18} className={isRefreshing ? 'spinning' : ''} />
-                        Refresh
-                    </button>
-                    <button className="btn btn-primary" style={{ width: 'auto', padding: '10px 24px' }}>
-                        <Download size={18} />
-                        Generate Report
-                    </button>
+        <div className="fade-in">
+            {/* Page Header */}
+            <div className="glass-card" style={{ marginBottom: '30px', padding: '30px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+                    <div>
+                        <h1 className="text-gradient" style={{ fontSize: '2.2rem', marginBottom: '8px' }}>
+                            Admin Dashboard
+                        </h1>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>
+                            Monitor and manage your platform
+                        </p>
+                    </div>
+                    <div style={{ display: 'flex', gap: '12px' }}>
+                        <button 
+                            className="btn-outline-dark" 
+                            onClick={handleRefresh}
+                            style={{ padding: '12px 24px' }}
+                        >
+                            <RefreshCw size={18} className={isRefreshing ? 'spinning' : ''} />
+                            Refresh
+                        </button>
+                        <button className="btn-dark" style={{ padding: '12px 28px' }}>
+                            <Download size={18} />
+                            Generate Report
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div className="card-grid enhanced">
-                <div className="stat-card modern">
-                    <div className="stat-icon purple pulse-animation">
+            {/* Stats Grid */}
+            <div className="grid-dark" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginBottom: '30px' }}>
+                <div className="stat-card-dark slide-up">
+                    <div className="stat-icon-dark purple">
                         <Users size={28} />
                     </div>
-                    <div className="stat-details">
-                        <div className="stat-header">
-                            <h3 className="counter-number">452</h3>
-                            <span className="stat-badge positive">+12</span>
-                        </div>
-                        <p>Total Users Managed</p>
-                        <div className="stat-progress">
-                            <div className="progress-bar purple" style={{ width: '78%' }}></div>
-                        </div>
+                    <h3 className="stat-number">{stats.users}</h3>
+                    <p className="stat-label">Total Users</p>
+                    <div className="progress-dark">
+                        <div className="progress-bar-dark" style={{ width: '78%' }}></div>
                     </div>
+                    <span className="badge-dark badge-success" style={{ marginTop: '12px' }}>+12 this week</span>
                 </div>
-                <div className="stat-card modern">
-                    <div className="stat-icon orange pulse-animation">
+
+                <div className="stat-card-dark slide-up" style={{ animationDelay: '0.1s' }}>
+                    <div className="stat-icon-dark pink">
                         <AlertTriangle size={28} />
                     </div>
-                    <div className="stat-details">
-                        <div className="stat-header">
-                            <h3 className="counter-number">12</h3>
-                            <span className="stat-badge warning">Urgent</span>
-                        </div>
-                        <p>Pending Verifications</p>
-                        <div className="stat-progress">
-                            <div className="progress-bar orange" style={{ width: '35%' }}></div>
-                        </div>
+                    <h3 className="stat-number">{stats.pending}</h3>
+                    <p className="stat-label">Pending Reviews</p>
+                    <div className="progress-dark">
+                        <div className="progress-bar-dark" style={{ width: '35%', background: 'linear-gradient(90deg, #ec4899, #f43f5e)' }}></div>
                     </div>
+                    <span className="badge-dark badge-warning" style={{ marginTop: '12px' }}>Urgent</span>
                 </div>
-                <div className="stat-card modern">
-                    <div className="stat-icon green pulse-animation">
+
+                <div className="stat-card-dark slide-up" style={{ animationDelay: '0.2s' }}>
+                    <div className="stat-icon-dark blue">
                         <ShieldCheck size={28} />
                     </div>
-                    <div className="stat-details">
-                        <div className="stat-header">
-                            <h3 className="counter-number">99.9%</h3>
-                            <span className="stat-badge positive">
-                                <TrendingUp size={14} />
-                            </span>
-                        </div>
-                        <p>System Uptime</p>
-                        <div className="stat-progress">
-                            <div className="progress-bar green" style={{ width: '99%' }}></div>
-                        </div>
+                    <h3 className="stat-number">{stats.uptime}%</h3>
+                    <p className="stat-label">System Uptime</p>
+                    <div className="progress-dark">
+                        <div className="progress-bar-dark" style={{ width: '99%' }}></div>
                     </div>
+                    <span className="badge-dark badge-success" style={{ marginTop: '12px' }}>
+                        <TrendingUp size={14} /> Excellent
+                    </span>
                 </div>
-                <div className="stat-card modern">
-                    <div className="stat-icon blue pulse-animation">
+
+                <div className="stat-card-dark slide-up" style={{ animationDelay: '0.3s' }}>
+                    <div className="stat-icon-dark blue">
                         <Activity size={28} />
                     </div>
-                    <div className="stat-details">
-                        <div className="stat-header">
-                            <h3 className="counter-number">1,247</h3>
-                            <span className="stat-badge positive">+5.3%</span>
-                        </div>
-                        <p>Active Sessions Today</p>
-                        <div className="stat-progress">
-                            <div className="progress-bar blue" style={{ width: '92%' }}></div>
-                        </div>
+                    <h3 className="stat-number">{stats.sessions.toLocaleString()}</h3>
+                    <p className="stat-label">Active Sessions</p>
+                    <div className="progress-dark">
+                        <div className="progress-bar-dark" style={{ width: '92%' }}></div>
                     </div>
+                    <span className="badge-dark badge-info" style={{ marginTop: '12px' }}>+5.3% today</span>
                 </div>
             </div>
 
-            <div className="content-card elevated">
-                <div className="card-header-actions">
-                    <div>
-                        <h2 className="card-title">Recent Verifications & Audits</h2>
-                        <p className="card-subtitle">Latest system activities and reviews</p>
-                    </div>
-                    <div className="filter-tabs">
-                        <button className="filter-tab active">All</button>
-                        <button className="filter-tab">Pending</button>
-                        <button className="filter-tab">Approved</button>
-                    </div>
+            {/* Recent Activities Table */}
+            <div className="glass-card-glow" style={{ padding: '0', overflow: 'hidden' }}>
+                <div style={{ padding: '28px 30px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <h2 className="text-gradient" style={{ fontSize: '1.5rem', marginBottom: '8px' }}>
+                        Recent Verifications & Audits
+                    </h2>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
+                        Latest system activities and reviews
+                    </p>
                 </div>
-                <div className="table-responsive enhanced">
-                    <table className="modern-table">
+                
+                <div style={{ overflowX: 'auto' }}>
+                    <table className="table-dark">
                         <thead>
                             <tr>
-                                <th>User / Org</th>
+                                <th>User / Organization</th>
                                 <th>Type</th>
-                                <th>Request Date</th>
+                                <th>Date</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="table-row-hover">
+                            <tr>
                                 <td>
-                                    <div className="user-cell">
-                                        <div className="user-avatar purple">CF</div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                        <div style={{ 
+                                            width: '40px', 
+                                            height: '40px', 
+                                            borderRadius: '10px', 
+                                            background: 'linear-gradient(135deg, #667eea, #764ba2)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            fontWeight: '700',
+                                            fontSize: '0.9rem'
+                                        }}>
+                                            CF
+                                        </div>
                                         <div>
-                                            <div className="user-name">City Shelter Foundation</div>
-                                            <div className="user-meta">ID: NGO-2024-001</div>
+                                            <div style={{ fontWeight: '600', color: 'var(--text-primary)' }}>
+                                                City Shelter Foundation
+                                            </div>
+                                            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                                                ID: NGO-2024-001
+                                            </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td><span className="type-badge ngo">NGO Registration</span></td>
                                 <td>
-                                    <div className="date-cell">
-                                        <div>Today, 10:20 AM</div>
-                                        <div className="date-relative">2 hours ago</div>
-                                    </div>
+                                    <span className="badge-dark badge-info">NGO Registration</span>
                                 </td>
-                                <td><span className="status-badge status-pending"><AlertTriangle size={14} /> Needs Review</span></td>
                                 <td>
-                                    <div className="action-buttons">
-                                        <button className="btn-icon success" title="Approve">
-                                            <CheckCircle2 size={18} />
+                                    <div>Today, 10:20 AM</div>
+                                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>2 hours ago</div>
+                                </td>
+                                <td>
+                                    <span className="badge-dark badge-warning">
+                                        <AlertTriangle size={14} /> Needs Review
+                                    </span>
+                                </td>
+                                <td>
+                                    <div style={{ display: 'flex', gap: '8px' }}>
+                                        <button 
+                                            className="btn-dark" 
+                                            style={{ padding: '8px 16px', fontSize: '0.85rem' }}
+                                            title="Approve"
+                                        >
+                                            <CheckCircle2 size={16} />
                                         </button>
-                                        <button className="btn-icon danger" title="Reject">
-                                            <XCircle size={18} />
+                                        <button 
+                                            className="btn-outline-dark" 
+                                            style={{ padding: '8px 16px', fontSize: '0.85rem', borderColor: '#ef4444', color: '#ef4444' }}
+                                            title="Reject"
+                                        >
+                                            <XCircle size={16} />
                                         </button>
                                     </div>
                                 </td>
                             </tr>
-                            <tr className="table-row-hover">
+                            <tr>
                                 <td>
-                                    <div className="user-cell">
-                                        <div className="user-avatar orange">BH</div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                        <div style={{ 
+                                            width: '40px', 
+                                            height: '40px', 
+                                            borderRadius: '10px', 
+                                            background: 'linear-gradient(135deg, #f093fb, #f5576c)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            fontWeight: '700',
+                                            fontSize: '0.9rem'
+                                        }}>
+                                            BH
+                                        </div>
                                         <div>
-                                            <div className="user-name">BakeHouse Pvt Ltd</div>
-                                            <div className="user-meta">ID: DNR-2024-087</div>
+                                            <div style={{ fontWeight: '600', color: 'var(--text-primary)' }}>
+                                                BakeHouse Pvt Ltd
+                                            </div>
+                                            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                                                ID: DNR-2024-087
+                                            </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td><span className="type-badge donor">Donor Registration</span></td>
                                 <td>
-                                    <div className="date-cell">
-                                        <div>Yesterday, 2:15 PM</div>
-                                        <div className="date-relative">1 day ago</div>
-                                    </div>
+                                    <span className="badge-dark badge-success">Donor Registration</span>
                                 </td>
-                                <td><span className="status-badge status-approved"><CheckCircle2 size={14} /> Approved</span></td>
                                 <td>
-                                    <div className="action-buttons">
-                                        <button className="btn-text-link">View Details</button>
-                                    </div>
+                                    <div>Yesterday, 2:15 PM</div>
+                                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>1 day ago</div>
+                                </td>
+                                <td>
+                                    <span className="badge-dark badge-success">
+                                        <CheckCircle2 size={14} /> Approved
+                                    </span>
+                                </td>
+                                <td>
+                                    <button 
+                                        className="btn-outline-dark" 
+                                        style={{ padding: '8px 16px', fontSize: '0.85rem' }}
+                                    >
+                                        <Eye size={16} /> View
+                                    </button>
                                 </td>
                             </tr>
-                            <tr className="table-row-hover">
+                            <tr>
                                 <td>
-                                    <div className="user-cell">
-                                        <div className="user-avatar red">SA</div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                        <div style={{ 
+                                            width: '40px', 
+                                            height: '40px', 
+                                            borderRadius: '10px', 
+                                            background: 'linear-gradient(135deg, #fa709a, #fee140)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            fontWeight: '700',
+                                            fontSize: '0.9rem'
+                                        }}>
+                                            SA
+                                        </div>
                                         <div>
-                                            <div className="user-name">SpamAccount123</div>
-                                            <div className="user-meta">ID: USR-2024-445</div>
+                                            <div style={{ fontWeight: '600', color: 'var(--text-primary)' }}>
+                                                SpamAccount123
+                                            </div>
+                                            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                                                ID: USR-2024-445
+                                            </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td><span className="type-badge flag">Security Flag</span></td>
                                 <td>
-                                    <div className="date-cell">
-                                        <div>12 Oct 2023</div>
-                                        <div className="date-relative">4 months ago</div>
-                                    </div>
+                                    <span className="badge-dark badge-danger">Security Flag</span>
                                 </td>
-                                <td><span className="status-badge status-rejected"><XCircle size={14} /> Suspended</span></td>
                                 <td>
-                                    <div className="action-buttons">
-                                        <button className="btn-text-link">View Log</button>
-                                    </div>
+                                    <div>12 Oct 2023</div>
+                                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>4 months ago</div>
+                                </td>
+                                <td>
+                                    <span className="badge-dark badge-danger">
+                                        <XCircle size={14} /> Suspended
+                                    </span>
+                                </td>
+                                <td>
+                                    <button 
+                                        className="btn-outline-dark" 
+                                        style={{ padding: '8px 16px', fontSize: '0.85rem' }}
+                                    >
+                                        <Eye size={16} /> View Log
+                                    </button>
                                 </td>
                             </tr>
                         </tbody>

@@ -1,0 +1,206 @@
+/* ============================================
+   PEOPLE ILLUSTRATION STYLES
+   ============================================ */
+
+.people-illustration-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.people-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 60px rgba(0, 212, 255, 0.3));
+}
+
+/* Person animations */
+.person {
+  animation: floatPerson 6s ease-in-out infinite;
+}
+
+.person-1 {
+  animation-delay: 0s;
+  transform-origin: center;
+}
+
+.person-2 {
+  animation-delay: 0.5s;
+  transform-origin: center;
+}
+
+.person-3 {
+  animation-delay: 1s;
+  transform-origin: center;
+}
+
+@keyframes floatPerson {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-15px) translateX(5px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-20px) translateX(3px);
+  }
+}
+
+/* Heart icon animation */
+.heart-icon {
+  animation: heartBeat 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Donation box animation */
+.donation-box {
+  animation: boxShake 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes boxShake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Glow circles animation */
+.glow-circle {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.glow-1 {
+  animation-delay: 0s;
+}
+
+.glow-2 {
+  animation-delay: 2s;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+}
+
+/* Connection lines animation */
+.connection-line {
+  animation: dashMove 3s linear infinite;
+}
+
+@keyframes dashMove {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 20;
+  }
+}
+
+/* Particle animations */
+.particle {
+  animation: particleFloat 4s ease-in-out infinite;
+}
+
+.p1 { animation-delay: 0s; }
+.p2 { animation-delay: 0.5s; }
+.p3 { animation-delay: 1s; }
+.p4 { animation-delay: 1.5s; }
+.p5 { animation-delay: 2s; }
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-30px) translateX(15px);
+    opacity: 1;
+  }
+}
+
+/* Text overlay */
+.illustration-text {
+  text-align: center;
+  margin-top: 30px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.illustration-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00d4ff, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+}
+
+.illustration-subtitle {
+  color: var(--text-secondary, #a0a0a0);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .people-illustration-container {
+    max-width: 350px;
+  }
+
+  .illustration-title {
+    font-size: 1.4rem;
+  }
+
+  .illustration-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .people-illustration-container {
+    max-width: 280px;
+  }
+
+  .illustration-title {
+    font-size: 1.2rem;
+  }
+}

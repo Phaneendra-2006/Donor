@@ -17,6 +17,9 @@ import {
     TrendingUp,
     UserCircle
 } from 'lucide-react';
+import AnimatedBackground from './AnimatedBackground';
+import '../DarkTheme.css';
+import './DashboardLayout.css';
 
 const DashboardLayout = ({ user, onLogout, children }) => {
     const navigate = useNavigate();
@@ -64,44 +67,52 @@ const DashboardLayout = ({ user, onLogout, children }) => {
     const links = getSidebarLinks(user.role);
 
     return (
-        <div className="dashboard-container">
-            <nav className="navbar">
-                <div className="navbar-brand">
-                    <HeartHandshake size={28} />
-                    FeedHope
-                </div>
-                <div className="navbar-user">
-                    <div className="user-info">
-                        <UserCircle size={24} color="var(--primary-color)" />
-                        <span>{user.name} ({user.role.toUpperCase()})</span>
+        <>
+            <AnimatedBackground />
+            <div className="dashboard-container-dark">
+                <nav className="navbar-dark">
+                    <div className="navbar-brand-dark">
+                        <HeartHandshake size={32} className="brand-icon-nav" />
+                        <span className="brand-text">FeedHope</span>
                     </div>
-                    <button className="logout-btn" onClick={handleLogout}>
-                        <LogOut size={18} />
-                        Logout
-                    </button>
+                    <div className="navbar-actions-dark">
+                        <div className="user-badge-dark">
+                            <UserCircle size={22} />
+                            <div className="user-details">
+                                <span className="user-name">{user.name}</span>
+                                <span className="user-role">{user.role.toUpperCase()}</span>
+                            </div>
+                        </div>
+                        <button className="logout-btn-dark" onClick={handleLogout}>
+                            <LogOut size={18} />
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </nav>
+
+                <div className="dashboard-layout-dark">
+                    <aside className="sidebar-dark">
+                        <div className="sidebar-menu">
+                            {links.map((link) => (
+                                <NavLink
+                                    key={link.path}
+                                    to={link.path}
+                                    end={link.path.split('/').length <= 2}
+                                    className={({ isActive }) => `nav-item-dark ${isActive ? 'active' : ''}`}
+                                >
+                                    {link.icon}
+                                    <span>{link.name}</span>
+                                </NavLink>
+                            ))}
+                        </div>
+                    </aside>
+
+                    <main className="main-content-dark">
+                        {children}
+                    </main>
                 </div>
-            </nav>
-
-            <div className="dashboard-layout">
-                <aside className="sidebar">
-                    {links.map((link) => (
-                        <NavLink
-                            key={link.path}
-                            to={link.path}
-                            end={link.path.split('/').length <= 2}
-                            className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-                        >
-                            {link.icon}
-                            {link.name}
-                        </NavLink>
-                    ))}
-                </aside>
-
-                <main className="main-content">
-                    {children}
-                </main>
             </div>
-        </div>
+        </>
     );
 };
 
